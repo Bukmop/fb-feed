@@ -8,21 +8,10 @@
 
 import Foundation
 
-private let contextPageSize = 5
+private let contextPageSize = 20
 
-private struct ArticleContext {
-    var articles = [Article]()
-    var loadedPages = 0
-    let to: Date
-
-    init(to: Date) {
-        self.to = to
-    }
-
-    mutating func appendPage(_ newArticles: [Article]) {
-        loadedPages += 1
-        articles.append(contentsOf: newArticles)
-    }
+struct DataServiceNotifications {
+    static let articlesDidChange = NSNotification.Name(rawValue: "articlesDidChange")
 }
 
 protocol DataService {
@@ -69,6 +58,7 @@ extension DefaultDataService {
             switch response {
             case let .data(newArticles):
                 self?.context?.appendPage(newArticles)
+                self?.articlesDidChange()
             case let .error(error):
                 print("Getting top did fail")
 
@@ -80,6 +70,14 @@ extension DefaultDataService {
             }
         }
 
+    }
+
+}
+
+private extension DefaultDataService {
+
+    func articlesDidChange() {
+        NotificationCenter.default.post(name: DataServiceNotifications.articlesDidChange, object: self)
     }
 
 }
