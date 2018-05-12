@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ArticleCell: UITableViewCell {
 
@@ -19,6 +20,17 @@ class ArticleCell: UITableViewCell {
         labelTitle.text = article.title
         labelDescription.text = article.description
         labelAuthor.text = article.author
+
+        if let imageUrl = URL(string: article.urlToImage) {
+            imageViewImage.kf.setImage(with: imageUrl)
+        }
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        imageViewImage.kf.cancelDownloadTask()
+        imageViewImage.image = nil
     }
 
 }

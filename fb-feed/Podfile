@@ -7,5 +7,6 @@ target 'fb-feed' do
 
   # Pods for fb-feed
   pod 'FBAudienceNetwork'
+  pod 'Kingfisher'
 
 end

@@ -1,16 +1,20 @@
 PODS:
   - FBAudienceNetwork (4.28.1)
+  - Kingfisher (4.7.0)
 
 DEPENDENCIES:
   - FBAudienceNetwork
+  - Kingfisher
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FBAudienceNetwork
+    - Kingfisher
 
 SPEC CHECKSUMS:
   FBAudienceNetwork: c0cda151bb2f7b55d1e045e59ebc81f3153989b2
+  Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
 
-PODFILE CHECKSUM: 0e5ae4f9ce6b9b7ef7fe8a7f42adecc8290e3fdf
+PODFILE CHECKSUM: 24a9a4a0361316c638f2162ae82c346764477d32
 
 COCOAPODS: 1.5.2
