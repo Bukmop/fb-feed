@@ -23,7 +23,7 @@ class FeedDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ArticleCell.self)) as! ArticleCell
         let currentArticle = article(at: indexPath.row)
-        cell.textLabel?.text = currentArticle.title
+        cell.update(with: currentArticle)
         return cell
     }
 
