@@ -11,14 +11,18 @@ import Foundation
 private let contextPageSize = 3
 
 struct DataServiceNotifications {
+
     static let stateDidChange = NSNotification.Name(rawValue: "stateDidChange")
     static let articlesDidAdd = NSNotification.Name(rawValue: "articlesDidAdd")
+
 }
 
 enum DataServiceState {
+
     case readyToFetch
     case fetching
     case allFetched
+    
 }
 
 protocol DataService {

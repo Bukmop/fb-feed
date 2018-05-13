@@ -9,6 +9,7 @@
 import Foundation
 
 struct ArticleContext {
+
     var articles = [Article]()
     var loadedPages = 0
     let to: Date
@@ -21,4 +22,5 @@ struct ArticleContext {
         loadedPages += 1
         articles.append(contentsOf: newArticles)
     }
+    
 }

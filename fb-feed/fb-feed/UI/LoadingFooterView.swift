@@ -11,9 +11,11 @@ import UIKit
 class LoadingFooterView: UITableViewHeaderFooterView {
 
     enum State {
+
         case readyToLoad
         case loading
         case nothingToLoad
+        
     }
 
     static let identifier = String(describing: LoadingFooterView.self)

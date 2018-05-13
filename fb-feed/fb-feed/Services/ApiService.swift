@@ -14,14 +14,18 @@ private let apiDateFormat = "YYYY-MM-DD'T'HH:mm:ss"
 typealias ApiCallback<T> = (ApiResponse<T>) -> Void
 
 enum ApiResponse<T> {
+
     case data(T)
     case error(Error?)
+    
 }
 
 enum ApiServiceError: Error {
+
     case canNotBuildUrl
     case missingResponseData
     case canNotParseResponse(Error)
+
 }
 
 protocol ApiService {
