@@ -10,24 +10,34 @@ import Foundation
 
 class DataServiceListener {
 
-    typealias OnDataChange = () -> Void
+    typealias OnStateChange = () -> Void
+    typealias OnArticlesAdd = () -> Void
 
     private let dataService: DataService
-    private let onDataChange: OnDataChange
+    private let onStateChange: OnStateChange?
+    private let onArticlesAdd: OnArticlesAdd?
 
-    init(_ dataService: DataService, onDataChange: @escaping OnDataChange) {
-        self.onDataChange = onDataChange
+    init(_ dataService: DataService,
+         onStateChange: OnStateChange? = nil,
+         onArticlesAdd: OnArticlesAdd? = nil) {
+        self.onStateChange = onStateChange
+        self.onArticlesAdd = onArticlesAdd
         self.dataService = dataService
 
-        NotificationCenter.default.addObserver(self, selector: #selector(articlesDidChange), name: DataServiceNotifications.articlesDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(stateDidChange), name: DataServiceNotifications.stateDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(articlesDidAdd), name: DataServiceNotifications.articlesDidAdd, object: nil)
     }
 
 }
 
 extension DataServiceListener {
 
-    @objc func articlesDidChange(notification: Notification) {
-        onDataChange()
+    @objc func stateDidChange(notification: Notification) {
+        onStateChange?()
+    }
+
+    @objc func articlesDidAdd(notification: Notification) {
+        onArticlesAdd?()
     }
 
 }

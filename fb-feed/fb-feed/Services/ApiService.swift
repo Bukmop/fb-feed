@@ -8,8 +8,8 @@
 
 import Foundation
 
-private let apiKey = "1dd66bdf169d4790ad98d0980f13d492"
-private let apiDateFormat = "YYYY-MM-DDTHH:mm:ss"
+private let apiKey = "4e50b6d025f64402b0d0d2f7bde2b7db"
+private let apiDateFormat = "YYYY-MM-DD'T'HH:mm:ss"
 
 typealias ApiCallback<T> = (ApiResponse<T>) -> Void
 
@@ -26,7 +26,7 @@ enum ApiServiceError: Error {
 
 protocol ApiService {
 
-    func getTop(_ request: TopHeadlinesRequest, callback: @escaping ApiCallback<[Article]>)
+    func getTop(_ request: TopHeadlinesRequest, callback: @escaping ApiCallback<TopArticles>)
 
 }
 
@@ -38,7 +38,7 @@ class DefaultApiService: ApiService {
 
 extension DefaultApiService {
 
-    func getTop(_ request: TopHeadlinesRequest, callback: @escaping ApiCallback<[Article]>) {
+    func getTop(_ request: TopHeadlinesRequest, callback: @escaping ApiCallback<TopArticles>) {
         guard var components = URLComponents(string: "https://newsapi.org/v2/top-headlines") else {
             callback(.error(ApiServiceError.canNotBuildUrl))
             return
@@ -57,6 +57,8 @@ extension DefaultApiService {
             return
         }
 
+        print("Getting top: \(url)")
+
         let task = defaultSession.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
                 callback(.error(error))
@@ -68,9 +70,12 @@ extension DefaultApiService {
                 return
             }
 
+            print(String(data: data, encoding: String.Encoding.utf8) ?? "")
+            print("\n")
+
             do {
                 let articles = try JSONDecoder().decode(TopArticles.self, from: data)
-                callback(.data(articles.articles))
+                callback(.data(articles))
             } catch {
                 callback(.error(ApiServiceError.canNotParseResponse(error)))
             }

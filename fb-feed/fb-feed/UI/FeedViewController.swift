@@ -20,6 +20,11 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
 
         viewModel.delegate = self
+
+        let feedDelegate = viewModel.feedDelegate
+        feedDelegate.register(with: tableView)
+        tableView.delegate = feedDelegate
+
         tableView.dataSource = viewModel.feedDataSource
         viewModel.viewDidLoad()
     }
@@ -28,10 +33,8 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController: FeedViewModelDelegate {
 
-    func dataDidChange() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+    func onDataAdded(_ indexPaths: [IndexPath]) {
+        tableView.insertRows(at: indexPaths, with: .none)
     }
 
 }

@@ -24,6 +24,9 @@
 		77428E8A20A7932100B1658B /* DataServiceListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E8920A7932100B1658B /* DataServiceListener.swift */; };
 		77428E8C20A79ABA00B1658B /* FeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E8B20A79ABA00B1658B /* FeedDataSource.swift */; };
 		77428E8E20A79BD900B1658B /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E8D20A79BD900B1658B /* FeedViewModel.swift */; };
+		77428E9020A7B24A00B1658B /* LoadingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77428E8F20A7B24A00B1658B /* LoadingFooterView.xib */; };
+		77428E9220A7B36700B1658B /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E9120A7B36700B1658B /* LoadingFooterView.swift */; };
+		77428E9420A7B86300B1658B /* FeedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E9320A7B86300B1658B /* FeedDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,9 @@
 		77428E8920A7932100B1658B /* DataServiceListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceListener.swift; sourceTree = "<group>"; };
 		77428E8B20A79ABA00B1658B /* FeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDataSource.swift; sourceTree = "<group>"; };
 		77428E8D20A79BD900B1658B /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		77428E8F20A7B24A00B1658B /* LoadingFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingFooterView.xib; sourceTree = "<group>"; };
+		77428E9120A7B36700B1658B /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
+		77428E9320A7B86300B1658B /* FeedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDelegate.swift; sourceTree = "<group>"; };
 		8112513C02DF2162F82784C4 /* Pods_fb_feed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fb_feed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -137,8 +143,11 @@
 				77428E6420A756DC00B1658B /* FeedViewController.swift */,
 				77428E8D20A79BD900B1658B /* FeedViewModel.swift */,
 				77428E8B20A79ABA00B1658B /* FeedDataSource.swift */,
+				77428E9320A7B86300B1658B /* FeedDelegate.swift */,
 				77428E8420A78EDC00B1658B /* ArticleCell.swift */,
 				77428E6620A756DC00B1658B /* Main.storyboard */,
+				77428E8F20A7B24A00B1658B /* LoadingFooterView.xib */,
+				77428E9120A7B36700B1658B /* LoadingFooterView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -223,6 +232,7 @@
 			files = (
 				77428E6D20A756E100B1658B /* LaunchScreen.storyboard in Resources */,
 				77428E6A20A756E100B1658B /* Assets.xcassets in Resources */,
+				77428E9020A7B24A00B1658B /* LoadingFooterView.xib in Resources */,
 				77428E6820A756DC00B1658B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,7 +288,9 @@
 				77428E8C20A79ABA00B1658B /* FeedDataSource.swift in Sources */,
 				77428E7D20A774E100B1658B /* TopHeadlinesRequest.swift in Sources */,
 				77428E8020A7769900B1658B /* Date+Extensions.swift in Sources */,
+				77428E9420A7B86300B1658B /* FeedDelegate.swift in Sources */,
 				77428E6520A756DC00B1658B /* FeedViewController.swift in Sources */,
+				77428E9220A7B36700B1658B /* LoadingFooterView.swift in Sources */,
 				77428E8A20A7932100B1658B /* DataServiceListener.swift in Sources */,
 				77428E7820A7629700B1658B /* ApiService.swift in Sources */,
 				77428E8520A78EDC00B1658B /* ArticleCell.swift in Sources */,

@@ -12,5 +12,6 @@ struct TopArticles: Decodable {
 
     let status: String
     let articles: [Article]
+    let totalResults: Int
 
 }

@@ -10,31 +10,31 @@ import Foundation
 
 protocol FeedViewModelDelegate: class {
 
-    func dataDidChange()
+    func onDataAdded(_ indexPaths: [IndexPath])
 
 }
 
 class FeedViewModel {
 
     private let dataService: DataService
-    private var dataServiceListener: DataServiceListener!
 
     let feedDataSource: FeedDataSource
+    let feedDelegate: FeedDelegate
 
     weak var delegate: FeedViewModelDelegate?
 
     init(dataService: DataService) {
         self.dataService = dataService
+        feedDelegate = FeedDelegate(dataService: dataService)
         feedDataSource = FeedDataSource(dataService: dataService)
 
-        setUpListener()
+        feedDataSource.onDataAdded = { [weak self] indexPaths in
+            self?.delegate?.onDataAdded(indexPaths)
+        }
     }
+}
 
-    func setUpListener() {
-        dataServiceListener = DataServiceListener(dataService, onDataChange: { [weak self] in
-            self?.delegate?.dataDidChange()
-        })
-    }
+extension FeedViewModel {
 
     func viewDidLoad() {
         dataService.fetch()

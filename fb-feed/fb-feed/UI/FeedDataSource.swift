@@ -8,16 +8,30 @@
 
 import UIKit
 
-class FeedDataSource: NSObject, UITableViewDataSource {
+class FeedDataSource: NSObject {
+
+    typealias OnDataAdded = ([IndexPath]) -> Void
 
     private let dataService: DataService
+    private var dataServiceListener: DataServiceListener!
+    private var articles = [Article]()
 
-    init(dataService: DataService) {
+    var onDataAdded: OnDataAdded?
+
+    init(dataService: DataService, onDataAdded: OnDataAdded? = nil) {
         self.dataService = dataService
+        self.onDataAdded = onDataAdded
+
+        super.init()
+        setUpListener()
     }
 
+}
+
+extension FeedDataSource: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataService.articles.count
+        return articles.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -31,8 +45,29 @@ class FeedDataSource: NSObject, UITableViewDataSource {
 
 private extension FeedDataSource {
 
+    func setUpListener() {
+        dataServiceListener = DataServiceListener(dataService, onArticlesAdd: { [weak self] in
+            self?.onArticlesAdd()
+        })
+    }
+
     func article(at index: Int) -> Article {
-        return dataService.articles[index]
+        return articles[index]
+    }
+
+    func onArticlesAdd() {
+        let oldArticles = articles
+        articles = dataService.articles
+
+        let firstIndex = oldArticles.count
+        let lastIndex = articles.count - 1
+
+        guard firstIndex <= lastIndex else {
+            return
+        }
+
+        let indexPaths = (firstIndex...lastIndex).map({ IndexPath(row: $0, section: 0) })
+        onDataAdded?(indexPaths)
     }
 
 }
