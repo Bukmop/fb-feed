@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticleCell" rowHeight="393" id="hA8-5y-uKb" customClass="ArticleCell" customModule="fb_feed" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedItemCell" rowHeight="393" id="hA8-5y-uKb" customClass="FeedItemCell" customModule="fb_feed" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="393"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hA8-5y-uKb" id="vUg-I1-mYQ">
@@ -58,6 +58,10 @@
                                                         <constraint firstAttribute="width" secondItem="eH3-Hz-Jjt" secondAttribute="height" multiplier="3:2" id="QEf-ud-tqe"/>
                                                     </constraints>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4S-Nk-arY" customClass="FBMediaView">
+                                                    <rect key="frame" x="15" y="15" width="345" height="230"/>
+                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.20965191720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgC-qs-wLt">
                                                     <rect key="frame" x="15" y="249" width="345" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -81,12 +85,16 @@
                                                 <constraint firstItem="eH3-Hz-Jjt" firstAttribute="leading" secondItem="vUg-I1-mYQ" secondAttribute="leading" constant="15" id="3E2-mq-VwW"/>
                                                 <constraint firstItem="uWg-Y9-DiQ" firstAttribute="centerX" secondItem="eH3-Hz-Jjt" secondAttribute="centerX" id="6zs-xv-tS2"/>
                                                 <constraint firstItem="lpw-2K-0hX" firstAttribute="top" secondItem="nPM-1D-leW" secondAttribute="bottom" constant="15" id="7se-fz-UkW"/>
+                                                <constraint firstItem="T4S-Nk-arY" firstAttribute="trailing" secondItem="eH3-Hz-Jjt" secondAttribute="trailing" id="Dfw-Fy-LXR"/>
                                                 <constraint firstItem="nPM-1D-leW" firstAttribute="top" secondItem="DgC-qs-wLt" secondAttribute="bottom" constant="8" id="GyN-qv-wKJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="lpw-2K-0hX" secondAttribute="trailing" constant="15" id="Hj2-0q-hzS"/>
                                                 <constraint firstItem="lpw-2K-0hX" firstAttribute="leading" secondItem="vUg-I1-mYQ" secondAttribute="leading" constant="15" id="Lbr-Tp-Bhy"/>
                                                 <constraint firstAttribute="bottom" secondItem="lpw-2K-0hX" secondAttribute="bottom" constant="15" id="PHH-nE-fy1"/>
+                                                <constraint firstItem="T4S-Nk-arY" firstAttribute="bottom" secondItem="eH3-Hz-Jjt" secondAttribute="bottom" id="SfC-3N-XuV"/>
+                                                <constraint firstItem="T4S-Nk-arY" firstAttribute="top" secondItem="eH3-Hz-Jjt" secondAttribute="top" id="cpj-op-1Jq"/>
                                                 <constraint firstItem="eH3-Hz-Jjt" firstAttribute="top" secondItem="vUg-I1-mYQ" secondAttribute="top" constant="15" id="fqq-0T-jS4"/>
                                                 <constraint firstItem="uWg-Y9-DiQ" firstAttribute="centerY" secondItem="eH3-Hz-Jjt" secondAttribute="centerY" id="gml-Hz-fzi"/>
+                                                <constraint firstItem="T4S-Nk-arY" firstAttribute="leading" secondItem="eH3-Hz-Jjt" secondAttribute="leading" id="hxO-q8-E5c"/>
                                                 <constraint firstItem="DgC-qs-wLt" firstAttribute="top" secondItem="eH3-Hz-Jjt" secondAttribute="bottom" constant="15" id="nd7-Nx-494"/>
                                                 <constraint firstItem="nPM-1D-leW" firstAttribute="leading" secondItem="vUg-I1-mYQ" secondAttribute="leading" constant="15" id="pi1-Bd-5s1"/>
                                                 <constraint firstAttribute="trailing" secondItem="nPM-1D-leW" secondAttribute="trailing" constant="15" id="qwf-LB-Uc5"/>
@@ -96,6 +104,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="fbMediaView" destination="T4S-Nk-arY" id="r8T-Iz-E2E"/>
                                             <outlet property="imageViewImage" destination="eH3-Hz-Jjt" id="SlN-9J-T3v"/>
                                             <outlet property="labelAuthor" destination="lpw-2K-0hX" id="6yh-7F-h6p"/>
                                             <outlet property="labelDescription" destination="nPM-1D-leW" id="spQ-BL-Zds"/>

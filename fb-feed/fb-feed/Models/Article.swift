@@ -7,13 +7,22 @@
 //
 
 import Foundation
+import FBAudienceNetwork
 
 struct Article: Decodable {
 
     let author: String?
-    let title: String
-    let description: String
-    let url: String
-    let urlToImage: String
+    let title: String?
+    let description: String?
+    let url: String?
+    let urlToImage: String?
+
+}
+
+extension Article: FeedItem {
+
+    var subtitle: String? {
+        return description
+    }
     
 }

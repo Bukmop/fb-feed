@@ -6,9 +6,11 @@
 //  Copyright © 2018 viktor smidl. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol FeedViewModelDelegate: class {
+
+    var controller: UIViewController { get }
 
     func onDataAdded(_ indexPaths: [IndexPath])
 
@@ -23,10 +25,14 @@ class FeedViewModel {
 
     weak var delegate: FeedViewModelDelegate?
 
-    init(dataService: DataService) {
+    init(dataService: DataService, adsService: AdsService) {
         self.dataService = dataService
         feedDelegate = FeedDelegate(dataService: dataService)
-        feedDataSource = FeedDataSource(dataService: dataService)
+        feedDataSource = FeedDataSource(
+            dataService: dataService,
+            adsService: adsService,
+            controller: delegate?.controller
+        )
 
         feedDataSource.onDataAdded = { [weak self] indexPaths in
             self?.delegate?.onDataAdded(indexPaths)

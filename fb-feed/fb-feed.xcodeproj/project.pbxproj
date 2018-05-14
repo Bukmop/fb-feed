@@ -19,7 +19,7 @@
 		77428E7D20A774E100B1658B /* TopHeadlinesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E7C20A774E100B1658B /* TopHeadlinesRequest.swift */; };
 		77428E8020A7769900B1658B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E7F20A7769900B1658B /* Date+Extensions.swift */; };
 		77428E8220A7817200B1658B /* TopArticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E8120A7817200B1658B /* TopArticles.swift */; };
-		77428E8520A78EDC00B1658B /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E8420A78EDC00B1658B /* ArticleCell.swift */; };
+		77428E8520A78EDC00B1658B /* FeedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E8420A78EDC00B1658B /* FeedItemCell.swift */; };
 		77428E8820A792F100B1658B /* ArticleContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E8720A792F100B1658B /* ArticleContext.swift */; };
 		77428E8A20A7932100B1658B /* DataServiceListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E8920A7932100B1658B /* DataServiceListener.swift */; };
 		77428E8C20A79ABA00B1658B /* FeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E8B20A79ABA00B1658B /* FeedDataSource.swift */; };
@@ -27,6 +27,9 @@
 		77428E9020A7B24A00B1658B /* LoadingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77428E8F20A7B24A00B1658B /* LoadingFooterView.xib */; };
 		77428E9220A7B36700B1658B /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E9120A7B36700B1658B /* LoadingFooterView.swift */; };
 		77428E9420A7B86300B1658B /* FeedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E9320A7B86300B1658B /* FeedDelegate.swift */; };
+		77428E9620A8707E00B1658B /* AdsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E9520A8707E00B1658B /* AdsService.swift */; };
+		77428E9920A886D500B1658B /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E9820A886D500B1658B /* Ad.swift */; };
+		77428E9B20A8895900B1658B /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77428E9A20A8895900B1658B /* FeedItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +48,7 @@
 		77428E7C20A774E100B1658B /* TopHeadlinesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeadlinesRequest.swift; sourceTree = "<group>"; };
 		77428E7F20A7769900B1658B /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		77428E8120A7817200B1658B /* TopArticles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopArticles.swift; sourceTree = "<group>"; };
-		77428E8420A78EDC00B1658B /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
+		77428E8420A78EDC00B1658B /* FeedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemCell.swift; sourceTree = "<group>"; };
 		77428E8720A792F100B1658B /* ArticleContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleContext.swift; sourceTree = "<group>"; };
 		77428E8920A7932100B1658B /* DataServiceListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceListener.swift; sourceTree = "<group>"; };
 		77428E8B20A79ABA00B1658B /* FeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDataSource.swift; sourceTree = "<group>"; };
@@ -53,6 +56,9 @@
 		77428E8F20A7B24A00B1658B /* LoadingFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingFooterView.xib; sourceTree = "<group>"; };
 		77428E9120A7B36700B1658B /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
 		77428E9320A7B86300B1658B /* FeedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDelegate.swift; sourceTree = "<group>"; };
+		77428E9520A8707E00B1658B /* AdsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsService.swift; sourceTree = "<group>"; };
+		77428E9820A886D500B1658B /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
+		77428E9A20A8895900B1658B /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		8112513C02DF2162F82784C4 /* Pods_fb_feed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fb_feed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -115,6 +121,7 @@
 			children = (
 				77428E8620A792D000B1658B /* DataService */,
 				77428E7720A7629700B1658B /* ApiService.swift */,
+				77428E9720A8866900B1658B /* AdsService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -122,9 +129,11 @@
 		77428E7920A76FE200B1658B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				77428E7A20A76FF100B1658B /* Article.swift */,
-				77428E8120A7817200B1658B /* TopArticles.swift */,
 				77428E7C20A774E100B1658B /* TopHeadlinesRequest.swift */,
+				77428E8120A7817200B1658B /* TopArticles.swift */,
+				77428E9A20A8895900B1658B /* FeedItem.swift */,
+				77428E7A20A76FF100B1658B /* Article.swift */,
+				77428E9820A886D500B1658B /* Ad.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -144,7 +153,7 @@
 				77428E8D20A79BD900B1658B /* FeedViewModel.swift */,
 				77428E8B20A79ABA00B1658B /* FeedDataSource.swift */,
 				77428E9320A7B86300B1658B /* FeedDelegate.swift */,
-				77428E8420A78EDC00B1658B /* ArticleCell.swift */,
+				77428E8420A78EDC00B1658B /* FeedItemCell.swift */,
 				77428E6620A756DC00B1658B /* Main.storyboard */,
 				77428E8F20A7B24A00B1658B /* LoadingFooterView.xib */,
 				77428E9120A7B36700B1658B /* LoadingFooterView.swift */,
@@ -160,6 +169,14 @@
 				77428E8720A792F100B1658B /* ArticleContext.swift */,
 			);
 			path = DataService;
+			sourceTree = "<group>";
+		};
+		77428E9720A8866900B1658B /* AdsService */ = {
+			isa = PBXGroup;
+			children = (
+				77428E9520A8707E00B1658B /* AdsService.swift */,
+			);
+			path = AdsService;
 			sourceTree = "<group>";
 		};
 		E8E14DA6A4EF9C3AAAFBBACE /* Frameworks */ = {
@@ -287,14 +304,17 @@
 				77428E7620A75EDE00B1658B /* DataService.swift in Sources */,
 				77428E8C20A79ABA00B1658B /* FeedDataSource.swift in Sources */,
 				77428E7D20A774E100B1658B /* TopHeadlinesRequest.swift in Sources */,
+				77428E9620A8707E00B1658B /* AdsService.swift in Sources */,
 				77428E8020A7769900B1658B /* Date+Extensions.swift in Sources */,
 				77428E9420A7B86300B1658B /* FeedDelegate.swift in Sources */,
 				77428E6520A756DC00B1658B /* FeedViewController.swift in Sources */,
 				77428E9220A7B36700B1658B /* LoadingFooterView.swift in Sources */,
 				77428E8A20A7932100B1658B /* DataServiceListener.swift in Sources */,
+				77428E9920A886D500B1658B /* Ad.swift in Sources */,
 				77428E7820A7629700B1658B /* ApiService.swift in Sources */,
-				77428E8520A78EDC00B1658B /* ArticleCell.swift in Sources */,
+				77428E8520A78EDC00B1658B /* FeedItemCell.swift in Sources */,
 				77428E6320A756DC00B1658B /* AppDelegate.swift in Sources */,
+				77428E9B20A8895900B1658B /* FeedItem.swift in Sources */,
 				77428E8220A7817200B1658B /* TopArticles.swift in Sources */,
 				77428E7B20A76FF100B1658B /* Article.swift in Sources */,
 				77428E8E20A79BD900B1658B /* FeedViewModel.swift in Sources */,

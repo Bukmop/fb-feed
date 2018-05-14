@@ -13,12 +13,14 @@ class FeedViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
 
     private let viewModel = FeedViewModel(
-        dataService: DefaultDataService(apiService: DefaultApiService())
+        dataService: DefaultDataService(apiService: DefaultApiService()),
+        adsService: DefaultAdsService()
     )
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Facebook Feed"
         viewModel.delegate = self
 
         let feedDelegate = viewModel.feedDelegate
@@ -32,6 +34,10 @@ class FeedViewController: UIViewController {
 }
 
 extension FeedViewController: FeedViewModelDelegate {
+
+    var controller: UIViewController {
+        return self
+    }
 
     func onDataAdded(_ indexPaths: [IndexPath]) {
         tableView.insertRows(at: indexPaths, with: .none)
